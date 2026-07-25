@@ -21,11 +21,11 @@
     *   `tsconfig.json`: TypeScript compiler options.
     *   Environment Variables: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN` are crucial for operation.
 *   **Build Process:**
-    *   `npm run build`: Compiles TypeScript in `src/` to JavaScript in `build/` and makes `build/index.js` executable. This script is `tsc && node -e "require('fs').chmodSync('build/index.js', '755')"`.
-    *   `npm run build:token`: Compiles TypeScript using `tsconfig.json` (likely for `get-refresh-token.ts`). This script is `tsc -p tsconfig.json`.
+    *   `pnpm run build`: Compiles TypeScript in `src/` to JavaScript in `build/` and makes `build/index.js` executable. This script is `tsc && node -e "require('fs').chmodSync('build/index.js', '755')"`.
+    *   `pnpm run build:token`: Compiles TypeScript using `tsconfig.json` (likely for `get-refresh-token.ts`). This script is `tsc -p tsconfig.json`.
 *   **Running the Project Locally:**
-    *   `npm run start` or `node build/index.js`: Runs the main MCP server.
-    *   `npm run get-refresh-token`: Builds and runs the script to obtain a Google API refresh token. This script is `npm run build:token && node build/get-refresh-token.js`.
+    *   `pnpm run start` or `node build/index.js`: Runs the main MCP server.
+    *   `pnpm run get-refresh-token`: Builds and runs the script to obtain a Google API refresh token. This script is `pnpm run build:token && node build/get-refresh-token.js`.
 *   **Testing:** No dedicated test scripts or frameworks are specified in `package.json`.
 
 ## Dependencies

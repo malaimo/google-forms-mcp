@@ -27,8 +27,8 @@
     *   Successfully exchanges the authorization code for a refresh token.
     *   Displays the refresh token to the user.
 *   **Build Process:**
-    *   `npm run build` compiles the main server.
-    *   `npm run build:token` compiles the token acquisition script.
+    *   `pnpm run build` compiles the main server.
+    *   `pnpm run build:token` compiles the token acquisition script.
 *   **Documentation:**
     *   `README.md` provides setup instructions, build commands, and a list of available tools.
 
@@ -44,7 +44,7 @@
 
 ## Known Issues & Bugs
 
-*   The `README.md` notes a potential error when running `get-refresh-token.js` and suggests running `npm run build:token` first if that occurs. This implies the main `npm run build` might not always correctly build `get-refresh-token.js` or there's a dependency nuance.
+*   The `README.md` notes a potential error when running `get-refresh-token.js` and suggests running `pnpm run build:token` first if that occurs. This implies the main `pnpm run build` might not always correctly build `get-refresh-token.js` or there's a dependency nuance.
 *   The `get-refresh-token.ts` script requests `https://www.googleapis.com/auth/drive` scope, but the `index.ts` (main server) does not explicitly use Drive API functionality. This might be an unnecessary permission or implicitly required by Forms. This should be clarified.
 *   The `@ts-ignore` comments in `src/get-refresh-token.ts` for `googleapis`, `open`, and `server-destroy` suggest potential type definition issues or module resolution complexities that were bypassed.
 
