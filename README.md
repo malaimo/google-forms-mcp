@@ -1,5 +1,3 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/matteoantoci-google-forms-mcp-badge.png)](https://mseep.ai/app/matteoantoci-google-forms-mcp)
-
 # Google Forms MCP Server
 
 This MCP server uses the Google Forms API to provide functions such as creating, editing, and retrieving responses for forms.
@@ -7,7 +5,9 @@ This MCP server uses the Google Forms API to provide functions such as creating,
 ## Build Method
 
 ### Initial Setup
+
 This project uses [pnpm](https://pnpm.io/). After cloning the repository, install dependencies:
+
 ```
 cd google-forms-mcp
 pnpm install
@@ -19,18 +19,21 @@ overrides that keep the tree free of known vulnerabilities live under the `pnpm.
 key, which npm does not read.
 
 ### Build the Server
+
 ```
 # Build the main MCP server
 pnpm run build
 ```
 
 ### Build the Refresh Token Acquisition Script
+
 ```
 # Build the refresh token acquisition script
 pnpm run build:token
 ```
 
 ### Execution in Development Environment
+
 ```
 # Run the server directly
 node build/index.js
@@ -38,7 +41,6 @@ node build/index.js
 # Or, use the pnpm script
 pnpm run start
 ```
-
 
 ## Setup Method
 
@@ -51,6 +53,7 @@ pnpm run start
    - Select Application type: "Desktop app"
 
 3. Set environment variables and obtain the refresh token.
+
    ```bash
    export GOOGLE_CLIENT_ID="YOUR_CLIENT_ID"
    export GOOGLE_CLIENT_SECRET="YOUR_CLIENT_SECRET"
@@ -60,6 +63,7 @@ pnpm run start
    ```
 
    Note: If an error occurs when running get-refresh-token.js, execute the following command:
+
    ```bash
    cd google-forms-mcp
    pnpm run build:token
@@ -78,6 +82,7 @@ pnpm run start
 5. Update the Claude desktop app's configuration file.
    - Open `~/Library/Application Support/Claude/claude_desktop_config.json`.
    - Add environment variables to the `google-forms-mcp` in the `mcpServers` section:
+
    ```json
    "google-forms-mcp": {
      "command": "node",
@@ -98,20 +103,20 @@ pnpm run start
 
 This MCP server provides the following tools:
 
-| Tool | Purpose |
-|---|---|
-| `create_form` | Create a new form. Accepts `description` and a full `items` array, so a whole questionnaire can be built in one call. |
-| `add_items` | Add several items in one batch, appended in the order given. Returns the `itemId` of each. |
-| `add_text_question` | Add a single text question (`paragraph: true` for a long answer). |
-| `add_multiple_choice_question` | Add a single choice question — `type` is `RADIO` (default), `CHECKBOX` or `DROP_DOWN`. |
-| `add_page_break` | Add a section break. Its `itemId` is the branching target. |
-| `update_item` | Replace the item at a given index. |
-| `delete_item` | Delete the item at a given index. |
-| `move_item` | Reorder an item. |
-| `update_form_info` | Change title, description or Drive file name. |
-| `update_settings` | Toggle quiz mode. |
-| `get_form` | Compact outline of the form; `verbose: true` returns the raw API JSON. |
-| `get_form_responses` | Get form responses. |
+| Tool                           | Purpose                                                                                                               |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `create_form`                  | Create a new form. Accepts `description` and a full `items` array, so a whole questionnaire can be built in one call. |
+| `add_items`                    | Add several items in one batch, appended in the order given. Returns the `itemId` of each.                            |
+| `add_text_question`            | Add a single text question (`paragraph: true` for a long answer).                                                     |
+| `add_multiple_choice_question` | Add a single choice question — `type` is `RADIO` (default), `CHECKBOX` or `DROP_DOWN`.                                |
+| `add_page_break`               | Add a section break. Its `itemId` is the branching target.                                                            |
+| `update_item`                  | Replace the item at a given index.                                                                                    |
+| `delete_item`                  | Delete the item at a given index.                                                                                     |
+| `move_item`                    | Reorder an item.                                                                                                      |
+| `update_form_info`             | Change title, description or Drive file name.                                                                         |
+| `update_settings`              | Toggle quiz mode.                                                                                                     |
+| `get_form`                     | Compact outline of the form; `verbose: true` returns the raw API JSON.                                                |
+| `get_form_responses`           | Get form responses.                                                                                                   |
 
 ### Item types
 
